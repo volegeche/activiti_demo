@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="leaveflowProcess" name="请假流程" isExecutable="true">
+    <startEvent id="sid-C87F9063-6823-4FC2-8405-B8A169078DDE"></startEvent>
+    <userTask id="managerTask" name="经理审批" activiti:assignee="张三">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-60F0F061-6497-4C22-9105-E47DE7BE8472" sourceRef="sid-C87F9063-6823-4FC2-8405-B8A169078DDE" targetRef="managerTask"></sequenceFlow>
+    <userTask id="bigManagerTask" name="总经理审批" activiti:assignee="李四">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-E917FE63-33E9-4032-9B19-4F994352EA2F" sourceRef="managerTask" targetRef="bigManagerTask"></sequenceFlow>
+    <endEvent id="sid-3C6B4398-DBC7-4DCA-8584-1FA693774626"></endEvent>
+    <sequenceFlow id="sid-84107BCB-CE0D-46D2-80EE-44E0B5F9BB29" sourceRef="bigManagerTask" targetRef="sid-3C6B4398-DBC7-4DCA-8584-1FA693774626"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_leaveflowProcess">
+    <bpmndi:BPMNPlane bpmnElement="leaveflowProcess" id="BPMNPlane_leaveflowProcess">
+      <bpmndi:BPMNShape bpmnElement="sid-C87F9063-6823-4FC2-8405-B8A169078DDE" id="BPMNShape_sid-C87F9063-6823-4FC2-8405-B8A169078DDE">
+        <omgdc:Bounds height="30.0" width="30.0" x="166.0" y="82.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="managerTask" id="BPMNShape_managerTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="240.0" y="57.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="bigManagerTask" id="BPMNShape_bigManagerTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="375.0" y="57.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-3C6B4398-DBC7-4DCA-8584-1FA693774626" id="BPMNShape_sid-3C6B4398-DBC7-4DCA-8584-1FA693774626">
+        <omgdc:Bounds height="28.0" width="28.0" x="531.0" y="83.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-E917FE63-33E9-4032-9B19-4F994352EA2F" id="BPMNEdge_sid-E917FE63-33E9-4032-9B19-4F994352EA2F">
+        <omgdi:waypoint x="340.0" y="97.0"></omgdi:waypoint>
+        <omgdi:waypoint x="375.0" y="97.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-84107BCB-CE0D-46D2-80EE-44E0B5F9BB29" id="BPMNEdge_sid-84107BCB-CE0D-46D2-80EE-44E0B5F9BB29">
+        <omgdi:waypoint x="475.0" y="97.0"></omgdi:waypoint>
+        <omgdi:waypoint x="531.0" y="97.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-60F0F061-6497-4C22-9105-E47DE7BE8472" id="BPMNEdge_sid-60F0F061-6497-4C22-9105-E47DE7BE8472">
+        <omgdi:waypoint x="196.0" y="97.0"></omgdi:waypoint>
+        <omgdi:waypoint x="240.0" y="97.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
